@@ -164,6 +164,10 @@ function hitung() {
       </div>`)
     .join('');
 
+  /* ─ Note estimasi ─ */
+  const noteEl = document.getElementById('estimasi-note');
+  if (noteEl) noteEl.style.display = 'block';
+
   /* ─ WA Link ─ */
   const waText = encodeURIComponent(
     `Halo Sales Tangga Mas, saya ingin konsultasi material:\n\n` +
