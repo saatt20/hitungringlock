@@ -181,7 +181,7 @@ function hitung() {
     `\n Estimasi berat: ${totalBerat} ton\n` +
     `Kendaraan: ${pilihan.nama} (${ritase}x ritase)`
   );
-  document.getElementById('wa_link').href = `https://wa.me/628123456789?text=${waText}`;
+  document.getElementById('wa_link').href = `https://wa.me/628123651717?text=${waText}`;
 
   /* ─ Tampilkan & Scroll ─
      Deteksi mode: landing page (ada #result-content) vs standalone (ada #result)
