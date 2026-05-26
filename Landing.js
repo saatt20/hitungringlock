@@ -34,7 +34,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
-/* ── Intersection Observer — fade-in on scroll ── */
+/* ── Intersection Observer — Efek Reveal on Scroll Modern (Poin 2) ── */
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -42,9 +42,10 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12 });
+}, { threshold: 0.15 });
 
-document.querySelectorAll('[data-animate]').forEach(el => {
+// Daftarkan produk-card bawaan dan fitur-card baru ke observer
+document.querySelectorAll('[data-animate], .fitur-card').forEach((el, index) => {
   el.classList.add('will-animate');
   observer.observe(el);
 });
@@ -93,4 +94,28 @@ window.addEventListener('load', () => {
     }
     // Salin konten hasil dari #result ke #result-content jika berbeda elemen
   };
+
+ document.addEventListener("DOMContentLoaded", function() {
+     const elementsToReveal = document.querySelectorAll('.reveal-on-scroll');
+     
+     const observerOptions = {
+         root: null, // Berdasarkan viewpoint browser
+         threshold: 0.15, // Elemen akan terpicu jika 15% areanya sudah masuk layar
+         rootMargin: "0px 0px -40px 0px"
+     };
+
+     const scrollObserver = new IntersectionObserver(function(entries, observer) {
+         entries.forEach(entry => {
+             if (entry.isIntersecting) {
+                 entry.target.classList.add('active');
+                 // Hentikan pengamatan pada elemen yang sudah muncul agar animasi tidak berulang-ulang
+                 observer.unobserve(entry.target); 
+             }
+         });
+     }, observerOptions);
+
+     elementsToReveal.forEach(element => {
+         scrollObserver.observe(element);
+     });
+});
 });
