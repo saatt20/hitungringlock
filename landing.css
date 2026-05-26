@@ -603,3 +603,115 @@ select:focus, input:focus, textarea:focus {
   .footer-links { flex-direction: column; gap: 24px; }
   .footer-bottom-inner { flex-direction: column; gap: 8px; text-align: center; }
 }
+
+/* ==========================================================================
+   TREN MODERNT (GLASSMORPHISM & TRANSISI SCROLL) - TAMBAHAN
+   ========================================================================== */
+
+/* Efek Kaca Frosted Glass (Poin 5) */
+.glass-card {
+  background: rgba(255, 255, 255, 0.45) !important;
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 8px 32px 0 rgba(27, 176, 206, 0.05) !important;
+}
+
+fitur-card.glass-card {
+  background: rgba(255, 255, 255, 0.45) !important;
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 8px 32px 0 rgba(27, 176, 206, 0.04) !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.6s ease, 
+              vertical-align 0.6s ease !important;
+}
+
+
+/* Micro-Interaction Halus Saat Hover (Poin 1) */
+.fitur-card.glass-card:hover {
+  transform: translateY(-6px) scale(1.01) !important;
+  box-shadow: 0 20px 40px rgba(27, 176, 206, 0.12) !important;
+  border-color: var(--cyan) !important;
+}
+
+/* Animasi Sumbu Scroll Halus (Poin 2) */
+.fitur-card.will-animate {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.fitur-card.will-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered Delay Otomatis untuk Anggota Bento Grid agar Muncul Bergantian */
+.fitur-grid .fitur-card:nth-child(1) { transition-delay: 0.05s; }
+.fitur-grid .fitur-card:nth-child(2) { transition-delay: 0.12s; }
+.fitur-grid .fitur-card:nth-child(3) { transition-delay: 0.19s; }
+.fitur-grid .fitur-card:nth-child(4) { transition-delay: 0.26s; }
+.fitur-grid .fitur-card:nth-child(5) { transition-delay: 0.33s; }
+
+/* Oversized Typography & Hero Kinetic Touch (Poin 3) */
+.hero-title {
+  animation: heroTextReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes heroTextReveal {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Micro-Interaction untuk Tombol Utama & Kartu (Poin 1) */
+.btn-primary {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(27, 176, 206, 0.4) !important;
+}
+
+.fitur-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+.fitur-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px rgba(27, 176, 206, 0.15) !important;
+}
+
+/* Base State untuk Scroll-Triggered Animation (Poin 2) */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+/* State Aktif saat Elemen Terlihat di Layar */
+.reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered Delay untuk Grid Konten */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+
+
+/* ── Estimasi Note ── */
+.estimasi-note {
+  font-size: 12px;
+  color: #000000;
+  background: #ffd4d4;
+  border: 1px solid #f65c2d;
+  border-left: 3px solid #f65c2d;
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  line-height: 1.6;
+  margin-top: 16px;
+}
